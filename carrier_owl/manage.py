@@ -2,8 +2,12 @@
 import os
 import sys
 
+import cbsettings
+
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "carrier_owl.settings")
+    cbsettings.configure('carrier_owl.settings.switcher')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
