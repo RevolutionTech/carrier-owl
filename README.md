@@ -33,6 +33,8 @@ Next we will need to set up some environment variables for your dev instance of 
 
     export CARRIER_OWL_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
     export CARRIER_OWL_DATABASE_URL='postgres://postgres:abc123@localhost:5432/carrier_owl'
+    export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_ID='1234-abc123.apps.googleusercontent.com'
+    export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_SECRET='abc123'
 
 For reference, the format of the `DATABASE_URL` is as follows:
 

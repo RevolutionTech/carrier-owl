@@ -2,3 +2,4 @@ Django==2.0.1
 psycopg2==2.7.3.2
 django-classbasedsettings==1.5.0
 dj-database-url==0.4.2
+social-auth-app-django==2.1.0
