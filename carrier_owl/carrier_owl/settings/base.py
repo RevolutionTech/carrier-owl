@@ -13,7 +13,7 @@ class BaseSettings(DjangoDefaults):
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-    SECRET_KEY = '43&!iy9s**6$-rlr^^1d0c_)sde8h#pe%zs#+4#63115wsr&4p'
+    SECRET_KEY = os.environ['CARRIER_OWL_SECRET_KEY']
     DEBUG = True
     ALLOWED_HOSTS = []
 
