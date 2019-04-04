@@ -1,6 +1,9 @@
 # Carrier Owl
 #### Assistant for sending out personalized invitations
 
+[![Build Status](https://travis-ci.com/RevolutionTech/carrier-owl.svg?branch=master)](https://travis-ci.com/RevolutionTech/carrier-owl)
+[![codecov](https://codecov.io/gh/RevolutionTech/carrier-owl/branch/master/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/carrier-owl)
+
 ## Setup
 
 ### Prerequisites
