@@ -1,0 +1,33 @@
+sudo: false
+language: python
+python:
+  - 3.6
+addons:
+  postgresql: "9.6"
+
+before_install:
+  - pip install poetry
+install:
+  - poetry install
+
+before_script:
+  - psql -c "CREATE DATABASE carrier_owl;" -U postgres
+  - export CARRIER_OWL_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
+  - export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_ID='1234-abc123.apps.googleusercontent.com'
+  - export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_SECRET='abc123'
+
+  # Event details
+  - export CARRIER_OWL_EVENT_WEEKDAY=2  # Wednesday
+  - export CARRIER_OWL_EVENT_START_HOUR=14  # 2pm
+  - export CARRIER_OWL_EVENT_START_MINUTE=0
+  - export CARRIER_OWL_EVENT_END_HOUR=15  # 3pm
+  - export CARRIER_OWL_EVENT_END_MINUTE=0
+  - export CARRIER_OWL_EVENT_SUMMARY='Example title'
+
+script:
+  - cd carrier_owl
+  - poetry run python manage.py migrate
+  - poetry run coverage run ./manage.py test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
