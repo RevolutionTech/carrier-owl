@@ -6,7 +6,6 @@ Django settings for carrier_owl project.
 import os
 
 from cbsettings import DjangoDefaults
-import dj_database_url
 
 
 class BaseSettings(DjangoDefaults):
@@ -59,10 +58,10 @@ class BaseSettings(DjangoDefaults):
 
     # Database
     DATABASES = {
-        'default': dj_database_url.config(
-            env='CARRIER_OWL_DATABASE_URL',
-            default='postgres://postgres@localhost/carrier_owl'
-        ),
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        },
     }
 
     # Authentication
