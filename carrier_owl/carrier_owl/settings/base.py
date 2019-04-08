@@ -8,9 +8,17 @@ import os
 from cbsettings import DjangoDefaults
 
 
+def aws_s3_bucket_url(settings_class, bucket_name_settings):
+    bucket_name = getattr(settings_class, bucket_name_settings, '')
+    if bucket_name:
+        return 'https://{bucket}.s3.amazonaws.com'.format(bucket=bucket_name)
+    return ''
+
+
 class BaseSettings(DjangoDefaults):
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    TOP_DIR = os.path.dirname(BASE_DIR)
 
     SECRET_KEY = os.environ['CARRIER_OWL_SECRET_KEY']
     DEBUG = True
@@ -24,6 +32,8 @@ class BaseSettings(DjangoDefaults):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'zappa_django_utils',
+        'django_s3_storage',
         'social_django',
         'gcalendar.apps.GcalendarConfig',
         'event.apps.EventConfig',
@@ -106,7 +116,17 @@ class BaseSettings(DjangoDefaults):
     USE_TZ = True
 
     # Static files (CSS, JavaScript, Images)
-    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(TOP_DIR, 'staticfiles')
+    AWS_S3_KEY_PREFIX_STATIC = 'static'
+    AWS_S3_BUCKET_AUTH = False
+    AWS_S3_MAX_AGE_SECONDS = 60 * 60 * 24 * 365  # 1 year
+
+    @property
+    def STATIC_URL(self):
+        return '{aws_s3}/{static}/'.format(
+            aws_s3=aws_s3_bucket_url(self, 'AWS_S3_BUCKET_NAME_STATIC'),
+            static=self.AWS_S3_KEY_PREFIX_STATIC
+        )
 
     # Google Calendar
     GCALENDAR_EVENT_TIMEZONE = 'America/Los_Angeles'

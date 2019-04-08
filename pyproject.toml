@@ -12,6 +12,9 @@ django-classbasedsettings = "^1.5.0"
 social-auth-app-django = "^2.1.0"
 google-api-python-client = "^1.6.5"
 oauth2client = "^4.1"
+zappa = "^0.48.2"
+zappa-django-utils = "^0.4.0"
+django-s3-storage = "^0.12.4"
 
 [tool.poetry.dev-dependencies]
 factory-boy = "^2.11.1"
