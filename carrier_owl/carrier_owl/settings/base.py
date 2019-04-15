@@ -130,14 +130,3 @@ class BaseSettings(DjangoDefaults):
 
     # Google Calendar
     GCALENDAR_EVENT_TIMEZONE = 'America/Los_Angeles'
-
-    # Event details
-    EVENT_WEEKDAY = int(os.environ['CARRIER_OWL_EVENT_WEEKDAY'])
-    EVENT_START_HOUR = int(os.environ['CARRIER_OWL_EVENT_START_HOUR'])
-    EVENT_START_MINUTE = int(os.environ['CARRIER_OWL_EVENT_START_MINUTE'])
-    EVENT_END_HOUR = int(os.environ['CARRIER_OWL_EVENT_END_HOUR'])
-    EVENT_END_MINUTE = int(os.environ['CARRIER_OWL_EVENT_END_MINUTE'])
-    EVENT_SUMMARY = os.environ['CARRIER_OWL_EVENT_SUMMARY']
-    EVENT_DESCRIPTION = os.environ.get('CARRIER_OWL_EVENT_DESCRIPTION')
-    EVENT_LOCATION = os.environ.get('CARRIER_OWL_EVENT_LOCATION')
-    EVENT_ATTENDEES = os.environ.get('CARRIER_OWL_EVENT_ATTENDEES', '').split(',')
