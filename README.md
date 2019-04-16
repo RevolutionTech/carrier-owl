@@ -20,13 +20,13 @@ Use [poetry](https://github.com/sdispater/poetry) to install Python dependencies
 
 ### Configuration
 
-Next we will need to set up some environment variables for your dev instance of Carrier Owl, such as your secret key and database credentials. Be sure to keep secret values secret! Add these values to your `~/.bashrc` file:
+Next we will need to set up some environment variables for your dev instance of Carrier Owl, such as your secret key. Be sure to keep secret values secret! Add these values to your `~/.bashrc` file:
 
     export CARRIER_OWL_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
     export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_ID='1234-abc123.apps.googleusercontent.com'
     export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_SECRET='abc123'
 
-Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719) and use a more secure password for your database. Then source your `~/.bashrc` file to set these environment variables:
+Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719). Then source your `~/.bashrc` file to set these environment variables:
 
     source ~/.bashrc
 
