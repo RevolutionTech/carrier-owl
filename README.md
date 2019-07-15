@@ -6,12 +6,6 @@
 
 ## Setup
 
-### Prerequisites
-
-Carrier Owl requires [SQLite](https://www.sqlite.org/index.html) and Python header files, which you can install on debian with:
-
-    sudo apt-get install libsqlite3-dev python3-dev
-
 ### Installation
 
 Use [poetry](https://github.com/sdispater/poetry) to install Python dependencies:
