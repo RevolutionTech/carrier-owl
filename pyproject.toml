@@ -14,7 +14,7 @@ google-api-python-client = "^1.7.9"
 oauth2client = "^4.1"
 zappa = "^0.48.2"
 zappa-django-utils = "^0.4.0"
-django-s3-storage = "^0.12.4"
+django-s3-storage = "^0.12.5"
 
 [tool.poetry.dev-dependencies]
 factory-boy = "^2.12.0"
