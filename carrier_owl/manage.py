@@ -3,9 +3,12 @@ import os
 import sys
 
 import cbsettings
+from dotenv import load_dotenv
 
 
 if __name__ == "__main__":
+    load_dotenv()
+
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "carrier_owl.settings")
     cbsettings.configure('carrier_owl.settings.switcher')
     try:
