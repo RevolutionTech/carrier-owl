@@ -9,9 +9,7 @@ install:
   - poetry install
 
 before_script:
-  - export CARRIER_OWL_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
-  - export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_ID='1234-abc123.apps.googleusercontent.com'
-  - export CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_SECRET='abc123'
+  - cp .env-sample .env
 
 script:
   - cd carrier_owl
