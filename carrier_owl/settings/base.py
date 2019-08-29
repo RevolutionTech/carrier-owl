@@ -18,7 +18,6 @@ def aws_s3_bucket_url(settings_class, bucket_name_settings):
 class BaseSettings(DjangoDefaults):
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    TOP_DIR = os.path.dirname(BASE_DIR)
 
     SECRET_KEY = os.environ['CARRIER_OWL_SECRET_KEY']
     DEBUG = True
@@ -116,7 +115,7 @@ class BaseSettings(DjangoDefaults):
     USE_TZ = True
 
     # Static files (CSS, JavaScript, Images)
-    STATIC_ROOT = os.path.join(TOP_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     AWS_S3_KEY_PREFIX_STATIC = 'static'
     AWS_S3_BUCKET_AUTH = False
     AWS_S3_MAX_AGE_SECONDS = 60 * 60 * 24 * 365  # 1 year
