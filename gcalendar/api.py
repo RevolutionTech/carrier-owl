@@ -10,7 +10,7 @@ from social_django.utils import load_strategy
 
 class GoogleCalendarAPI(object):
 
-    CALENDAR_ID_PRIMARY = 'primary'
+    CALENDAR_ID_PRIMARY = "primary"
 
     @staticmethod
     def gcalendar_timestamp(dt):
@@ -23,8 +23,8 @@ class GoogleCalendarAPI(object):
     @classmethod
     def gcalendar_datetime(cls, dt):
         return {
-            'dateTime': cls.gcalendar_timestamp(dt),
-            'timeZone': settings.GCALENDAR_EVENT_TIMEZONE,
+            "dateTime": cls.gcalendar_timestamp(dt),
+            "timeZone": settings.GCALENDAR_EVENT_TIMEZONE,
         }
 
     @classmethod
@@ -36,20 +36,20 @@ class GoogleCalendarAPI(object):
 
     def __init__(self):
         access_token = self.get_access_token_from_superuser()
-        credentials = AccessTokenCredentials(access_token, 'python-requests')
-        service = discovery.build('calendar', 'v3', credentials=credentials)
+        credentials = AccessTokenCredentials(access_token, "python-requests")
+        service = discovery.build("calendar", "v3", credentials=credentials)
         self.events_api = service.events()
 
     def get_events_at_time(self, dt, max_results=None):
         results = self.events_api.list(
             calendarId=self.CALENDAR_ID_PRIMARY,
-            orderBy='startTime',
+            orderBy="startTime",
             timeMin=self.gcalendar_timestamp(dt),
             singleEvents=True,
             maxResults=max_results,
-            timeMax=self.gcalendar_timestamp(dt + datetime.timedelta(seconds=1))
+            timeMax=self.gcalendar_timestamp(dt + datetime.timedelta(seconds=1)),
         ).execute()
-        events = results.get('items', [])
+        events = results.get("items", [])
         return events
 
     def has_event_at_time(self, dt):
@@ -59,12 +59,12 @@ class GoogleCalendarAPI(object):
         return self.events_api.insert(
             calendarId=self.CALENDAR_ID_PRIMARY,
             body={
-                'summary': summary,
-                'start': self.gcalendar_datetime(start),
-                'end': self.gcalendar_datetime(end),
-                'description': description,
-                'location': location,
-                'attendees': [{'email': email} for email in attendees],
+                "summary": summary,
+                "start": self.gcalendar_datetime(start),
+                "end": self.gcalendar_datetime(end),
+                "description": description,
+                "location": location,
+                "attendees": [{"email": email} for email in attendees],
             },
-            sendUpdates='all'
+            sendUpdates="all",
         ).execute()

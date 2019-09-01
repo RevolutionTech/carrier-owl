@@ -18,6 +18,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "carrier_owl.settings")
-cbsettings.configure('carrier_owl.settings.switcher')
+cbsettings.configure("carrier_owl.settings.switcher")
 
 application = get_wsgi_application()

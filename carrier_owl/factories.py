@@ -6,18 +6,21 @@ import factory
 
 class UserFactory(factory.DjangoModelFactory):
 
-    _PASSWORD = 'abc123'
+    _PASSWORD = "abc123"
 
     class Meta:
         model = User
 
-    username = factory.Faker('user_name')
-    email = factory.LazyAttribute(lambda user: "{username}@gmail.com".format(username=user.username))
-    social_auth = factory.RelatedFactory('carrier_owl.factories.UserSocialAuthFactory', 'user')
+    username = factory.Faker("user_name")
+    email = factory.LazyAttribute(
+        lambda user: "{username}@gmail.com".format(username=user.username)
+    )
+    social_auth = factory.RelatedFactory(
+        "carrier_owl.factories.UserSocialAuthFactory", "user"
+    )
 
 
 class UserSocialAuthFactory(factory.DjangoModelFactory):
-
     class Meta:
         model = UserSocialAuth
 
