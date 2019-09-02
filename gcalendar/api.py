@@ -8,7 +8,7 @@ from oauth2client.client import AccessTokenCredentials
 from social_django.utils import load_strategy
 
 
-class GoogleCalendarAPI(object):
+class GoogleCalendarAPI:
 
     CALENDAR_ID_PRIMARY = "primary"
 
