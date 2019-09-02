@@ -11,7 +11,7 @@ from cbsettings import DjangoDefaults
 def aws_s3_bucket_url(settings_class, bucket_name_settings):
     bucket_name = getattr(settings_class, bucket_name_settings, "")
     if bucket_name:
-        return "https://{bucket}.s3.amazonaws.com".format(bucket=bucket_name)
+        return f"https://{bucket_name}.s3.amazonaws.com"
     return ""
 
 

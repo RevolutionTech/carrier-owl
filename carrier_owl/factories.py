@@ -12,9 +12,7 @@ class UserFactory(factory.DjangoModelFactory):
         model = User
 
     username = factory.Faker("user_name")
-    email = factory.LazyAttribute(
-        lambda user: "{username}@gmail.com".format(username=user.username)
-    )
+    email = factory.LazyAttribute(lambda user: f"{user.username}@gmail.com")
     social_auth = factory.RelatedFactory(
         "carrier_owl.factories.UserSocialAuthFactory", "user"
     )
