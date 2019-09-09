@@ -1,9 +1,6 @@
-import datetime
-
+from apiclient import discovery
 from django.conf import settings
 from django.contrib.auth.models import User
-
-from apiclient import discovery
 from oauth2client.client import AccessTokenCredentials
 from social_django.utils import load_strategy
 
@@ -40,20 +37,20 @@ class GoogleCalendarAPI:
         service = discovery.build("calendar", "v3", credentials=credentials)
         self.events_api = service.events()
 
-    def get_events_at_time(self, dt, max_results=None):
+    def get_events_during_time(self, start, end, max_results=None):
         results = self.events_api.list(
             calendarId=self.CALENDAR_ID_PRIMARY,
             orderBy="startTime",
-            timeMin=self.gcalendar_timestamp(dt),
+            timeMin=self.gcalendar_timestamp(start),
             singleEvents=True,
             maxResults=max_results,
-            timeMax=self.gcalendar_timestamp(dt + datetime.timedelta(seconds=1)),
+            timeMax=self.gcalendar_timestamp(end),
         ).execute()
         events = results.get("items", [])
         return events
 
-    def has_event_at_time(self, dt):
-        return bool(self.get_events_at_time(dt, max_results=1))
+    def has_event_during_time(self, start, end):
+        return bool(self.get_events_during_time(start, end, max_results=1))
 
     def create_event(self, summary, start, end, description, location, attendees):
         return self.events_api.insert(

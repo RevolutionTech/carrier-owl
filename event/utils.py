@@ -1,6 +1,6 @@
 import datetime
-import pytz
 
+import pytz
 from django.conf import settings
 from django.utils import timezone
 
@@ -18,8 +18,3 @@ def calculate_next_weekday(weekday):
         minute=0, second=0, microsecond=0
     )
     return next_weekday_this_hour
-
-
-def event_midpoint(start, end):
-    event_length = end - start
-    return start + event_length / 2

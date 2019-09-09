@@ -1,5 +1,5 @@
 from event.models import Event
-from event.utils import calculate_next_weekday, event_midpoint
+from event.utils import calculate_next_weekday
 from gcalendar.api import GoogleCalendarAPI
 
 
@@ -12,10 +12,9 @@ def create_next_weekly_events():
         next_event_end = next_event_day.replace(
             hour=event.end_time.hour, minute=event.end_time.minute
         )
-        next_event_midpoint = event_midpoint(next_event_start, next_event_end)
 
         gcal_api = GoogleCalendarAPI()
-        if not gcal_api.has_event_at_time(next_event_midpoint):
+        if not gcal_api.has_event_during_time(next_event_start, next_event_end):
             gcal_api.create_event(
                 summary=event.summary,
                 start=next_event_start,

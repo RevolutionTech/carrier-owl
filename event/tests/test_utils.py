@@ -1,14 +1,10 @@
 import datetime
 from unittest import mock
 
-from django.test import SimpleTestCase, override_settings
 import pytz
+from django.test import SimpleTestCase, override_settings
 
-from event.utils import (
-    calculate_next_weekday,
-    event_midpoint,
-    number_days_until_next_weekday,
-)
+from event.utils import calculate_next_weekday, number_days_until_next_weekday
 
 
 class EventUtilsTestCase(SimpleTestCase):
@@ -38,10 +34,4 @@ class EventUtilsTestCase(SimpleTestCase):
 
         self.assertEqual(
             calculate_next_weekday(weekday=self.WEEKDAY_THURSDAY), self.dt_jan_2019(3)
-        )
-
-    def test_event_midpoint(self):
-        self.assertEqual(
-            event_midpoint(start=self.dt_jan_2019(1), end=self.dt_jan_2019(3)),
-            self.dt_jan_2019(2),
         )

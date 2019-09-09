@@ -45,9 +45,10 @@ class GoogleCalendarAPIAccessTestCase(TestCase):
 
 class GoogleCalendarAPITestCase(unittest.TestCase):
     def setUp(self):
-        self.dt_jan_5 = datetime.datetime(2019, 1, 5, 18, 30).astimezone(
+        self.dt_jan_5_6pm = datetime.datetime(2019, 1, 5, 18, 0).astimezone(
             pytz.timezone("America/Los_Angeles")
         )
+        self.dt_jan_5_7pm = self.dt_jan_5_6pm + datetime.timedelta(hours=1)
         self.event = {
             "kind": "calendar#event",
             "etag": '"1234"',
@@ -92,26 +93,32 @@ class GoogleCalendarAPITestCase(unittest.TestCase):
             self.api = GoogleCalendarAPI()
 
     @mock.patch("gcalendar.api.discovery.HttpRequest.execute")
-    def test_get_events_at_time(self, mock_execute):
+    def test_get_events_during_time(self, mock_execute):
         mock_execute.return_value = {"items": [self.event]}
 
-        self.assertEqual(self.api.get_events_at_time(dt=self.dt_jan_5), [self.event])
+        self.assertEqual(
+            self.api.get_events_during_time(
+                start=self.dt_jan_5_6pm, end=self.dt_jan_5_7pm
+            ),
+            [self.event],
+        )
 
     @mock.patch("gcalendar.api.discovery.HttpRequest.execute")
-    def test_has_event_at_time(self, mock_execute):
+    def test_has_event_during_time(self, mock_execute):
         mock_execute.return_value = {"items": [self.event]}
 
-        self.assertTrue(self.api.has_event_at_time(dt=self.dt_jan_5))
+        self.assertTrue(
+            self.api.has_event_during_time(
+                start=self.dt_jan_5_6pm, end=self.dt_jan_5_7pm
+            )
+        )
 
     @mock.patch("gcalendar.api.discovery.HttpRequest.execute")
     def test_create_event(self, mock_execute):
-        start = self.dt_jan_5.replace(hour=18, minute=0)
-        end = self.dt_jan_5.replace(hour=19, minute=0)
-
         self.api.create_event(
             summary="Event Title",
-            start=start,
-            end=end,
+            start=self.dt_jan_5_6pm,
+            end=self.dt_jan_5_7pm,
             description="Event Description",
             location="Location",
             attendees=["jsmith@gmail.com"],

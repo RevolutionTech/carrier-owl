@@ -23,7 +23,8 @@ class EventRecurringTestCase(TestCase):
     def test_create_next_weekly_events(self, mock_gcal_api):
         create_event_mock = mock.Mock()
         mock_gcal_api.return_value = mock.Mock(
-            has_event_at_time=lambda _: False, create_event=create_event_mock
+            has_event_during_time=lambda start, end: False,
+            create_event=create_event_mock,
         )
 
         event = EventFactory(
@@ -53,7 +54,8 @@ class EventRecurringTestCase(TestCase):
     def test_create_next_weekly_events_skips_with_existing_event(self, mock_gcal_api):
         create_event_mock = mock.Mock()
         mock_gcal_api.return_value = mock.Mock(
-            has_event_at_time=lambda _: True, create_event=create_event_mock
+            has_event_during_time=lambda start, end: True,
+            create_event=create_event_mock,
         )
 
         create_next_weekly_events()
