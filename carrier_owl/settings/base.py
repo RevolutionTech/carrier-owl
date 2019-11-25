@@ -4,6 +4,7 @@ Django settings for carrier_owl project.
 """
 
 import os
+from distutils.util import strtobool
 
 from cbsettings import DjangoDefaults
 
@@ -38,6 +39,7 @@ class BaseSettings(DjangoDefaults):
         "social_django",
         "gcalendar.apps.GcalendarConfig",
         "event.apps.EventConfig",
+        "emails.apps.EmailsConfig",
     ]
     MIDDLEWARE = [
         "django.middleware.security.SecurityMiddleware",
@@ -129,3 +131,21 @@ class BaseSettings(DjangoDefaults):
 
     # Google Calendar
     GCALENDAR_EVENT_TIMEZONE = "America/Los_Angeles"
+
+    # Email
+    EMAIL_HOST = os.environ["CARRIER_OWL_EMAIL_HOST"]
+    EMAIL_PORT = os.environ.get("CARRIER_OWL_EMAIL_PORT", 25)
+    EMAIL_HOST_USER = os.environ["CARRIER_OWL_EMAIL_USER"]
+    EMAIL_HOST_PASSWORD = os.environ["CARRIER_OWL_EMAIL_PASSWORD"]
+    EMAIL_USE_TLS = strtobool(os.environ.get("CARRIER_OWL_EMAIL_USE_TLS", "false"))
+
+    def DEFAULT_FROM_EMAIL(self):
+        return os.environ.get("CARRIER_OWL_EMAIL_FROM", self.EMAIL_HOST_USER)
+
+    # Experimental switches
+    EXPERIMENT_ADD_ATTENDEES_TO_EVENT = strtobool(
+        os.environ.get("CARRIER_OWL_EXPERIMENT_ADD_ATTENDEES_TO_EVENT", "true")
+    )
+    EXPERIMENT_SEND_ATTENDEES_INVITATION_EMAIL = strtobool(
+        os.environ.get("CARRIER_OWL_EXPERIMENT_SEND_ATTENDEES_INVITATION_EMAIL", "true")
+    )
