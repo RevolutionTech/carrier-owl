@@ -11,7 +11,7 @@ class ProdSettings(BaseSettings):
     # Database
     DATABASES = {
         "default": {
-            "ENGINE": "zappa_django_utils.db.backends.s3sqlite",
+            "ENGINE": "django_s3_sqlite",
             "NAME": "db.sqlite3",
             "BUCKET": "carrier-owl-sqlite3",
         }

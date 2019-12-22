@@ -34,7 +34,7 @@ class BaseSettings(DjangoDefaults):
         "django.contrib.sessions",
         "django.contrib.messages",
         "django.contrib.staticfiles",
-        "zappa_django_utils",
+        "django_s3_sqlite",
         "django_s3_storage",
         "social_django",
         "gcalendar.apps.GcalendarConfig",
