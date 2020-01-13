@@ -5,11 +5,11 @@ from emails.message import generate_customized_message
 
 
 def send_emails(event):
-    for attendee in event.attendees.all():
+    for guest in event.guests.all():
         send_mail(
-            event.summary,
-            generate_customized_message(event, attendee),
+            event.subject,
+            generate_customized_message(event.message, guest),
             settings.DEFAULT_FROM_EMAIL,
-            [attendee.email],
+            [guest.email],
             fail_silently=False,
         )

@@ -141,11 +141,3 @@ class BaseSettings(DjangoDefaults):
 
     def DEFAULT_FROM_EMAIL(self):
         return os.environ.get("CARRIER_OWL_EMAIL_FROM", self.EMAIL_HOST_USER)
-
-    # Experimental switches
-    EXPERIMENT_ADD_ATTENDEES_TO_EVENT = strtobool(
-        os.environ.get("CARRIER_OWL_EXPERIMENT_ADD_ATTENDEES_TO_EVENT", "true")
-    )
-    EXPERIMENT_SEND_ATTENDEES_INVITATION_EMAIL = strtobool(
-        os.environ.get("CARRIER_OWL_EXPERIMENT_SEND_ATTENDEES_INVITATION_EMAIL", "true")
-    )

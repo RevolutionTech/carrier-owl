@@ -11,7 +11,7 @@ class TestSendEmails(TestCase):
     def test_send_emails(self):
         users = UserFactory.create_batch(2)
         event = EventFactory()
-        event.attendees.set(users)
+        event.guests.set(users)
 
         send_emails(event)
         self.assertEqual(len(mail.outbox), len(users))
@@ -19,7 +19,7 @@ class TestSendEmails(TestCase):
         for user, email in zip(users, mail.outbox):
             self.assertEqual(email.from_email, settings.DEFAULT_FROM_EMAIL)
             self.assertEqual(email.to, [user.email])
-            self.assertEqual(email.subject, event.summary)
+            self.assertEqual(email.subject, event.subject)
             self.assertEqual(
-                email.body, f"Hey {user.first_name},\n\nExample description",
+                email.body, f"Hey {user.first_name},\n\nExample message",
             )

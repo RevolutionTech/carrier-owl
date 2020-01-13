@@ -9,19 +9,13 @@ from carrier_owl.factories import UserFactory, UserSocialAuthFactory
 from gcalendar.api import GoogleCalendarAPI
 
 
-class GoogleCalendarDateTimeTestCase(unittest.TestCase):
+class GoogleCalendarTimestampTestCase(unittest.TestCase):
     def setUp(self):
         self.dt_jan_1 = datetime.datetime(2019, 1, 1)
 
     def test_gcalendar_timestamp(self):
         self.assertEqual(
             GoogleCalendarAPI.gcalendar_timestamp(self.dt_jan_1), "2019-01-01T00:00:00"
-        )
-
-    def test_gcalendar_datetime(self):
-        self.assertEqual(
-            GoogleCalendarAPI.gcalendar_datetime(self.dt_jan_1),
-            {"dateTime": "2019-01-01T00:00:00", "timeZone": "America/Los_Angeles"},
         )
 
 
@@ -112,15 +106,3 @@ class GoogleCalendarAPITestCase(unittest.TestCase):
                 start=self.dt_jan_5_6pm, end=self.dt_jan_5_7pm
             )
         )
-
-    @mock.patch("gcalendar.api.discovery.HttpRequest.execute")
-    def test_create_event(self, mock_execute):
-        self.api.create_event(
-            summary="Event Title",
-            start=self.dt_jan_5_6pm,
-            end=self.dt_jan_5_7pm,
-            description="Event Description",
-            location="Location",
-            attendees=["jsmith@gmail.com"],
-        )
-        mock_execute.assert_called_once()
