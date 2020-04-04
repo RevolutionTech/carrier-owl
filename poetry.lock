@@ -154,7 +154,7 @@ description = "A high-level Python Web framework that encourages rapid developme
 name = "django"
 optional = false
 python-versions = ">=3.5"
-version = "2.2.9"
+version = "2.2.10"
 
 [package.dependencies]
 pytz = "*"
@@ -844,8 +844,8 @@ defusedxml = [
     {file = "defusedxml-0.6.0rc1.tar.gz", hash = "sha256:06d4515a8f8965624d6db922093eb11e77fb8f9a9ebedd1c5d6df5a0fcd0a12c"},
 ]
 django = [
-    {file = "Django-2.2.9-py3-none-any.whl", hash = "sha256:687c37153486cf26c3fdcbdd177ef16de38dc3463f094b5f9c9955d91f277b14"},
-    {file = "Django-2.2.9.tar.gz", hash = "sha256:662a1ff78792e3fd77f16f71b1f31149489434de4b62a74895bd5d6534e635a5"},
+    {file = "Django-2.2.10-py3-none-any.whl", hash = "sha256:9a4635813e2d498a3c01b10c701fe4a515d76dd290aaa792ccb65ca4ccb6b038"},
+    {file = "Django-2.2.10.tar.gz", hash = "sha256:1226168be1b1c7efd0e66ee79b0e0b58b2caa7ed87717909cd8a57bb13a7079a"},
 ]
 django-classbasedsettings = [
     {file = "django-classbasedsettings-1.5.0.tar.gz", hash = "sha256:c85708a85614c671e81d75e8781691c0e69a173ea6d25e54b366d6004dd8c5ee"},
