@@ -15,7 +15,7 @@ oauth2client = "^4.1"
 zappa = "^0.51.0"
 django-s3-storage = "^0.13.0"
 python-dotenv = "^0.12.0"
-django-s3-sqlite = "^0.0.2"
+django-s3-sqlite = "^0.0.3"
 
 [tool.poetry.dev-dependencies]
 factory-boy = "^2.12.0"
