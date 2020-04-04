@@ -182,7 +182,7 @@ description = "An AWS S3-hosted SQLite database backend for Django."
 name = "django-s3-sqlite"
 optional = false
 python-versions = "*"
-version = "0.0.2"
+version = "0.0.3"
 
 [package.dependencies]
 Django = ">=2"
@@ -810,7 +810,7 @@ wheel = "*"
 wsgi-request-logger = "*"
 
 [metadata]
-content-hash = "f7dfbe59f66452f566c4fc8c985c7cb3b5cd4deaa1bca725444fccbc8ce02611"
+content-hash = "31b26470659440528fff5cbeba60e44a1f78af780b75f9a8f7d809337666c862"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -902,8 +902,8 @@ django-classbasedsettings = [
     {file = "django-classbasedsettings-1.5.0.tar.gz", hash = "sha256:c85708a85614c671e81d75e8781691c0e69a173ea6d25e54b366d6004dd8c5ee"},
 ]
 django-s3-sqlite = [
-    {file = "django-s3-sqlite-0.0.2.tar.gz", hash = "sha256:3a6a694efa79dae0a56291271503d425a96df803c101e5bfe5d3e9b003ef1e20"},
-    {file = "django_s3_sqlite-0.0.2-py3-none-any.whl", hash = "sha256:bc2f8264920f5de62be241ce26c2470b6d20b05a82fedf34f723433df59b96e5"},
+    {file = "django-s3-sqlite-0.0.3.tar.gz", hash = "sha256:a4e6bc25fe3c38d17cbb6cf31ca5735289186a24151dc21ebc819f6023e623e2"},
+    {file = "django_s3_sqlite-0.0.3-py3-none-any.whl", hash = "sha256:ebdc639e5fc579bde9c7d50abfa7e543ce6b6759bb3ac219ed3bfa7e0de2b84f"},
 ]
 django-s3-storage = [
     {file = "django-s3-storage-0.13.0.tar.gz", hash = "sha256:53c0d5a6b5064073246c120c67dbe011c16f27f77bd195573bccfd4c38756f83"},
