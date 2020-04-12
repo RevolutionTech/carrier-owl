@@ -822,7 +822,7 @@ wheel = "*"
 wsgi-request-logger = "*"
 
 [metadata]
-content-hash = "80a231a184819f92073e5828217847c9262143793a5b1d75e620d3ecbb3c738e"
+content-hash = "9afb566146ecd24d06b964f47fe52924afeee1db17c311d0fc12fd4db73c7989"
 python-versions = "^3.8"
 
 [metadata.files]
