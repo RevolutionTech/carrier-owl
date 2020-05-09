@@ -4,9 +4,8 @@ Django settings for carrier_owl project.
 """
 
 import os
-from distutils.util import strtobool
 
-from cbsettings import DjangoDefaults
+from configurations import Configuration, values
 
 
 def aws_s3_bucket_url(settings_class, bucket_name_settings):
@@ -16,13 +15,11 @@ def aws_s3_bucket_url(settings_class, bucket_name_settings):
     return ""
 
 
-class BaseSettings(DjangoDefaults):
+class BaseConfig(Configuration):
 
-    BASE_DIR = os.path.dirname(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    )
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    SECRET_KEY = os.environ["CARRIER_OWL_SECRET_KEY"]
+    SECRET_KEY = values.SecretValue(environ_prefix="CARRIER_OWL")
     DEBUG = True
     ALLOWED_HOSTS = []
 
@@ -101,10 +98,12 @@ class BaseSettings(DjangoDefaults):
         "social_core.pipeline.user.user_details",
         "social_core.pipeline.social_auth.associate_by_email",
     )
-    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ["CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_ID"]
-    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ[
-        "CARRIER_OWL_GOOGLE_OAUTH2_CLIENT_SECRET"
-    ]
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = values.SecretValue(
+        environ_name="GOOGLE_OAUTH2_CLIENT_ID", environ_prefix="CARRIER_OWL"
+    )
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = values.SecretValue(
+        environ_name="GOOGLE_OAUTH2_CLIENT_SECRET", environ_prefix="CARRIER_OWL"
+    )
     SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
         "https://www.googleapis.com/auth/calendar.events"
     ]
@@ -133,11 +132,37 @@ class BaseSettings(DjangoDefaults):
     GCALENDAR_EVENT_TIMEZONE = "America/Los_Angeles"
 
     # Email
-    EMAIL_HOST = os.environ["CARRIER_OWL_EMAIL_HOST"]
-    EMAIL_PORT = os.environ.get("CARRIER_OWL_EMAIL_PORT", 25)
-    EMAIL_HOST_USER = os.environ["CARRIER_OWL_EMAIL_USER"]
-    EMAIL_HOST_PASSWORD = os.environ["CARRIER_OWL_EMAIL_PASSWORD"]
-    EMAIL_USE_TLS = strtobool(os.environ.get("CARRIER_OWL_EMAIL_USE_TLS", "false"))
+    EMAIL_HOST = values.SecretValue(environ_prefix="CARRIER_OWL")
+    EMAIL_PORT = values.IntegerValue(25, environ_prefix="CARRIER_OWL")
+    EMAIL_HOST_USER = values.SecretValue(
+        environ_name="EMAIL_USER", environ_prefix="CARRIER_OWL"
+    )
+    EMAIL_HOST_PASSWORD = values.SecretValue(
+        environ_name="EMAIL_PASSWORD", environ_prefix="CARRIER_OWL"
+    )
+    EMAIL_USE_TLS = values.BooleanValue(False, environ_prefix="CARRIER_OWL")
+    DEFAULT_FROM_EMAIL = values.Value(
+        EMAIL_HOST_USER, environ_name="EMAIL_FROM", environ_prefix="CARRIER_OWL"
+    )
 
-    def DEFAULT_FROM_EMAIL(self):
-        return os.environ.get("CARRIER_OWL_EMAIL_FROM", self.EMAIL_HOST_USER)
+
+class ProdConfig(BaseConfig):
+
+    DEBUG = False
+    ALLOWED_HOSTS = ["masonic.games"]
+
+    # Database
+    DATABASES = {
+        "default": {
+            "ENGINE": "django_s3_sqlite",
+            "NAME": "db.sqlite3",
+            "BUCKET": "carrier-owl-sqlite3",
+        }
+    }
+
+    # Static files
+    STATICFILES_STORAGE = "django_s3_storage.storage.ManifestStaticS3Storage"
+    AWS_S3_BUCKET_NAME_STATIC = "carrier-owl"
+
+    AWS_ACCESS_KEY_ID = values.SecretValue(environ_prefix="CARRIER_OWL")
+    AWS_SECRET_ACCESS_KEY = values.SecretValue(environ_prefix="CARRIER_OWL")
