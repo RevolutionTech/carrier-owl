@@ -2,8 +2,8 @@ import datetime
 import unittest
 from unittest import mock
 
-from django.test import TestCase
 import pytz
+from django.test import TestCase
 
 from carrier_owl.factories import UserFactory, UserSocialAuthFactory
 from gcalendar.api import GoogleCalendarAPI
