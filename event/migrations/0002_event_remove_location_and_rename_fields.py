@@ -11,13 +11,22 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RenameField(
-            model_name="event", old_name="attendees", new_name="guests",
+            model_name="event",
+            old_name="attendees",
+            new_name="guests",
         ),
         migrations.RenameField(
-            model_name="event", old_name="description", new_name="message",
+            model_name="event",
+            old_name="description",
+            new_name="message",
         ),
         migrations.RenameField(
-            model_name="event", old_name="summary", new_name="subject",
+            model_name="event",
+            old_name="summary",
+            new_name="subject",
         ),
-        migrations.RemoveField(model_name="event", name="location",),
+        migrations.RemoveField(
+            model_name="event",
+            name="location",
+        ),
     ]

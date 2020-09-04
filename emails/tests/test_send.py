@@ -21,5 +21,6 @@ class TestSendEmails(TestCase):
             self.assertEqual(email.to, [user.email])
             self.assertEqual(email.subject, event.subject)
             self.assertEqual(
-                email.body, f"Hey {user.first_name},\n\nExample message",
+                email.body,
+                f"Hey {user.first_name},\n\nExample message",
             )
