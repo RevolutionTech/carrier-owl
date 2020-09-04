@@ -5,7 +5,7 @@ import factory
 from event.models import Event
 
 
-class EventFactory(factory.DjangoModelFactory):
+class EventFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Event
 
