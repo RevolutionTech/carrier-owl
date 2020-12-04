@@ -133,9 +133,7 @@ class BaseConfig(Configuration):
     EMAIL_HOST_USER = values.SecretValue(environ_prefix="CARRIER_OWL")
     EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="CARRIER_OWL")
     EMAIL_USE_TLS = values.BooleanValue(False, environ_prefix="CARRIER_OWL")
-    DEFAULT_FROM_EMAIL = values.Value(
-        EMAIL_HOST_USER, environ_name="EMAIL_FROM", environ_prefix="CARRIER_OWL"
-    )
+    DEFAULT_FROM_EMAIL = values.Value(EMAIL_HOST_USER, environ_prefix="CARRIER_OWL")
 
 
 class ProdConfig(BaseConfig):
