@@ -166,3 +166,10 @@ class ProdConfig(BaseConfig):
 
     AWS_ACCESS_KEY_ID = values.SecretValue(environ_prefix="CARRIER_OWL")
     AWS_SECRET_ACCESS_KEY = values.SecretValue(environ_prefix="CARRIER_OWL")
+
+
+# Config for running ./manage.py collectstatic
+# without requiring secrets that are unused by the command
+class ProdCollectStaticConfig(ProdConfig):
+
+    SECRET_KEY = "dummyvalue"
