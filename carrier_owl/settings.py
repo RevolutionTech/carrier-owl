@@ -98,12 +98,8 @@ class BaseConfig(Configuration):
         "social_core.pipeline.user.user_details",
         "social_core.pipeline.social_auth.associate_by_email",
     )
-    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = values.SecretValue(
-        environ_name="GOOGLE_OAUTH2_CLIENT_ID", environ_prefix="CARRIER_OWL"
-    )
-    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = values.SecretValue(
-        environ_name="GOOGLE_OAUTH2_CLIENT_SECRET", environ_prefix="CARRIER_OWL"
-    )
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = values.SecretValue(environ_prefix="CARRIER_OWL")
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = values.SecretValue(environ_prefix="CARRIER_OWL")
     SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
         "https://www.googleapis.com/auth/calendar.events"
     ]
@@ -134,12 +130,8 @@ class BaseConfig(Configuration):
     # Email
     EMAIL_HOST = values.SecretValue(environ_prefix="CARRIER_OWL")
     EMAIL_PORT = values.IntegerValue(25, environ_prefix="CARRIER_OWL")
-    EMAIL_HOST_USER = values.SecretValue(
-        environ_name="EMAIL_USER", environ_prefix="CARRIER_OWL"
-    )
-    EMAIL_HOST_PASSWORD = values.SecretValue(
-        environ_name="EMAIL_PASSWORD", environ_prefix="CARRIER_OWL"
-    )
+    EMAIL_HOST_USER = values.SecretValue(environ_prefix="CARRIER_OWL")
+    EMAIL_HOST_PASSWORD = values.SecretValue(environ_prefix="CARRIER_OWL")
     EMAIL_USE_TLS = values.BooleanValue(False, environ_prefix="CARRIER_OWL")
     DEFAULT_FROM_EMAIL = values.Value(
         EMAIL_HOST_USER, environ_name="EMAIL_FROM", environ_prefix="CARRIER_OWL"
