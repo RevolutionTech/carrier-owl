@@ -173,3 +173,8 @@ class ProdConfig(BaseConfig):
 class ProdCollectStaticConfig(ProdConfig):
 
     SECRET_KEY = "dummyvalue"
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "dummyvalue"
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "dummyvalue"
+    EMAIL_HOST = "dummyvalue"
+    EMAIL_HOST_USER = "dummyvalue"
+    EMAIL_HOST_PASSWORD = "dummyvalue"
