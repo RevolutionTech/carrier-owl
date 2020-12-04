@@ -22,23 +22,18 @@ With everything installed and all files in place, you may now create the databas
 
 ### Deployment
 
-Deployments are done using `zappa`. First, you will need to decrypt the `zappa_settings.json.enc` to `zappa_settings.json`:
+Carrier Owl is deployed as a `zappa` app on AWS Lambda. To modify the deployment settings, first you will need to decrypt `zappa_settings.json`:
 
-    openssl aes-256-cbc -k $DECRYPT_PASSWORD -in zappa_settings.json.enc -out zappa_settings.json -d
+    DECRYPT_PASSWORD=abc123 poetry run inv openssl.decrypt zappa_settings.json
 
-where `$DECRYPT_PASSWORD` contains the key that the settings were encrypted with. Then, use `zappa` to deploy to the production environment:
+where `DECRYPT_PASSWORD` is assigned to the key that the settings were encrypted with.
 
-    poetry run zappa deploy
+Then, generate a Docker container and run the container to execute zappa commands, such as `zappa update`:
 
-Once deployed, you will need to set environment variables on the generated Lambda. See `ProdConfig` for additional environment variables used in production.
+    poetry run inv deploy
 
-Then to publish static assets, run the `manage.py collectstatic` command locally, setting the environment variables for AWS credentials to the values used in production:
+The `inv deploy` command also updates static files via `./manage.py collectstatic`.
 
-    DJANGO_CONFIGURATION=ProdConfig CARRIER_OWL_AWS_ACCESS_KEY_ID=1234 CARRIER_OWL_AWS_SECRET_ACCESS_KEY=abc123 poetry run python manage.py collectstatic --noinput
+Once deployed, you will need to set environment variables on the generated Lambda. See `ProdConfig` for additional environment variables used in production. You may also need to update `ALLOWED_HOSTS` in `ProdConfig` to match the assigned URL for the Lambda. Once completed, the assigned URL should be running Carrier Owl.
 
-You may also need to update `ALLOWED_HOSTS` in `ProdConfig` to match the assigned URL for the Lambda. Once completed, the assigned URL should be running Carrier Owl.
-
-If any changes to `zappa_settings.json` are made, the file should be re-encrypted before being committed. The following bash functions may be helpful for encrypting/decrypting:
-
-    function encrypt_openssl () { openssl aes-256-cbc -k $DECRYPT_PASSWORD -in "$1" -out "$1".enc; }
-    function decrypt_openssl () { openssl aes-256-cbc -k $DECRYPT_PASSWORD -in "$1".enc -out "$1" -d; }
+If any changes to `zappa_settings.json` are made, the file should be re-encrypted before being committed. You can use the `openssl` invoke tasks to do this.
