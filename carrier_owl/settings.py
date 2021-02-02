@@ -139,7 +139,7 @@ class BaseConfig(Configuration):
 class ProdConfig(BaseConfig):
 
     DEBUG = False
-    ALLOWED_HOSTS = ["masonic.games"]
+    ALLOWED_HOSTS = ["gamenight.revolutiontech.ca"]
 
     # Database
     DATABASES = {
