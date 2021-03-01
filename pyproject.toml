@@ -20,7 +20,7 @@ django-configurations = "^2.2"
 [tool.poetry.dev-dependencies]
 factory-boy = "^3.2.0"
 coverage = "^5.4"
-opstrich = "^0.2.0"
+opstrich = "^0.3.1"
 
 [tool.isort]
 profile = "black"
