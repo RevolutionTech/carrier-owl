@@ -13,7 +13,7 @@ google-api-python-client = "^2.3.0"
 oauth2client = "^4.1"
 zappa = "^0.52.0"
 django-s3-storage = "^0.13.4"
-python-dotenv = "^0.17.1"
+python-dotenv = "^0.18.0"
 django-s3-sqlite = "^0.0.3"
 django-configurations = "^2.2"
 
