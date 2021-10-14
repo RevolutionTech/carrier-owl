@@ -2,7 +2,7 @@
 #### Assistant for sending out personalized invitations
 
 ![CI](https://github.com/RevolutionTech/carrier-owl/actions/workflows/ci.yml/badge.svg)
-[![codecov](https://codecov.io/gh/RevolutionTech/carrier-owl/branch/master/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/carrier-owl)
+[![codecov](https://codecov.io/gh/RevolutionTech/carrier-owl/branch/main/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/carrier-owl)
 
 ## Setup
 
