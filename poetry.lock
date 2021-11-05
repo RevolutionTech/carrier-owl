@@ -862,12 +862,11 @@ python-versions = "*"
 
 [[package]]
 name = "zappa"
-version = "0.53.0"
+version = "0.54.0"
 description = "Server-less Python Web Services for AWS Lambda and API Gateway"
 category = "main"
 optional = false
 python-versions = "*"
-develop = false
 
 [package.dependencies]
 argcomplete = "*"
@@ -889,16 +888,10 @@ troposphere = ">=3.0"
 Werkzeug = "<1.0"
 wsgi-request-logger = "*"
 
-[package.source]
-type = "git"
-url = "https://github.com/zappa/Zappa.git"
-reference = "89e99174ded0abdcbc5740c57c25baf93e55d468"
-resolved_reference = "89e99174ded0abdcbc5740c57c25baf93e55d468"
-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "d8278b0228a174b6080f004b538df7ff3e227e792b13e28402e52cf1478fecf2"
+content-hash = "73887f8c68eb40afee973b4d83b990891ca3f35f6d2b407a0b9539f7413e6693"
 
 [metadata.files]
 appdirs = [
@@ -1403,4 +1396,7 @@ werkzeug = [
 wsgi-request-logger = [
     {file = "wsgi-request-logger-0.4.6.tar.gz", hash = "sha256:445d7ec52799562f812006394d0b4a7064b37084c6ea6bd74ea7a2136c97ed83"},
 ]
-zappa = []
+zappa = [
+    {file = "zappa-0.54.0-py3-none-any.whl", hash = "sha256:2db80edd7bf336d982a1916a4a5bb1fc5f5077d3cf3c63ed2c0448e3778b3a57"},
+    {file = "zappa-0.54.0.tar.gz", hash = "sha256:59b5084e37a11140ac5a20804a962998a3d4c4d77fe9f648040c49634af739e5"},
+]
