@@ -210,7 +210,7 @@ testing = ["django-discover-runner", "mock", "django-cache-url (>=1.0.0)", "dj-d
 
 [[package]]
 name = "django-s3-sqlite"
-version = "0.0.3"
+version = "0.0.4"
 description = "An AWS S3-hosted SQLite database backend for Django."
 category = "main"
 optional = false
@@ -891,7 +891,7 @@ wsgi-request-logger = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "d9a859471a9418cb80fea85ae0d8078466c176a57f143275019640feaf049a8b"
+content-hash = "2ee1c8059ef386dbec7244eda95f42f59528c72d052dbbbaf54891acf06d4293"
 
 [metadata.files]
 appdirs = [
@@ -1044,8 +1044,8 @@ django-configurations = [
     {file = "django_configurations-2.2-py2.py3-none-any.whl", hash = "sha256:0b93cb7042739e2d69cfc6fb81676bbd3cbb63ea19b02e8b681f4cad3a8aaf1b"},
 ]
 django-s3-sqlite = [
-    {file = "django-s3-sqlite-0.0.3.tar.gz", hash = "sha256:a4e6bc25fe3c38d17cbb6cf31ca5735289186a24151dc21ebc819f6023e623e2"},
-    {file = "django_s3_sqlite-0.0.3-py3-none-any.whl", hash = "sha256:ebdc639e5fc579bde9c7d50abfa7e543ce6b6759bb3ac219ed3bfa7e0de2b84f"},
+    {file = "django-s3-sqlite-0.0.4.tar.gz", hash = "sha256:6c15d496ddce395b6f02a220131322fbc69103abeff0c5966c8dc2a105fbdef5"},
+    {file = "django_s3_sqlite-0.0.4-py3-none-any.whl", hash = "sha256:be66aac6d6d838657a7e9bcecfe4c2c675d75e8b231d07f5177fc7e152c9208d"},
 ]
 django-s3-storage = [
     {file = "django-s3-storage-0.13.4.tar.gz", hash = "sha256:4caa2e993ca2f3762d05d6f1ab2a291cad57d08fd104e6808b6c6278204fa836"},
