@@ -221,7 +221,7 @@ Django = ">=2"
 
 [[package]]
 name = "django-s3-storage"
-version = "0.13.4"
+version = "0.13.5"
 description = "Django Amazon S3 file storage."
 category = "main"
 optional = false
@@ -891,7 +891,7 @@ wsgi-request-logger = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "17cc8a42478435ae55186863fb4ca576741b1bca6233fdd1d3c0adf30b1e7c7a"
+content-hash = "735977c39129f55dd92b348f4a7ac73323cad02b608d4071a006ac5d74058b81"
 
 [metadata.files]
 appdirs = [
@@ -1048,7 +1048,8 @@ django-s3-sqlite = [
     {file = "django_s3_sqlite-0.0.4-py3-none-any.whl", hash = "sha256:be66aac6d6d838657a7e9bcecfe4c2c675d75e8b231d07f5177fc7e152c9208d"},
 ]
 django-s3-storage = [
-    {file = "django-s3-storage-0.13.4.tar.gz", hash = "sha256:4caa2e993ca2f3762d05d6f1ab2a291cad57d08fd104e6808b6c6278204fa836"},
+    {file = "django-s3-storage-0.13.5.tar.gz", hash = "sha256:b353316131adbe867ad8fbaa7b33010613b11676ff4f62a5b26eda1e8497f9bb"},
+    {file = "django_s3_storage-0.13.5-py3-none-any.whl", hash = "sha256:c147b9cd5917056129b6f06bcf191e6018c5d91c1e65b7179f8360d1ab0639ed"},
 ]
 durationpy = [
     {file = "durationpy-0.5.tar.gz", hash = "sha256:5ef9416b527b50d722f34655becfb75e49228eb82f87b855ed1911b3314b5408"},
