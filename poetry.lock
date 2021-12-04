@@ -192,21 +192,21 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-configurations"
-version = "2.2"
+version = "2.3.1"
 description = "A helper for organizing Django settings."
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6, <4.0"
 
 [package.dependencies]
-six = "*"
+django = ">=2.2"
 
 [package.extras]
 cache = ["django-cache-url"]
 database = ["dj-database-url"]
 email = ["dj-email-url"]
 search = ["dj-search-url"]
-testing = ["django-discover-runner", "mock", "django-cache-url (>=1.0.0)", "dj-database-url", "dj-email-url", "dj-search-url", "Sphinx (>=1.4)"]
+testing = ["django-cache-url (>=1.0.0)", "dj-database-url", "dj-email-url", "dj-search-url"]
 
 [[package]]
 name = "django-s3-sqlite"
@@ -891,7 +891,7 @@ wsgi-request-logger = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "2ee1c8059ef386dbec7244eda95f42f59528c72d052dbbbaf54891acf06d4293"
+content-hash = "17cc8a42478435ae55186863fb4ca576741b1bca6233fdd1d3c0adf30b1e7c7a"
 
 [metadata.files]
 appdirs = [
@@ -1040,8 +1040,8 @@ django = [
     {file = "Django-3.2.9.tar.gz", hash = "sha256:51284300f1522ffcdb07ccbdf676a307c6678659e1284f0618e5a774127a6a08"},
 ]
 django-configurations = [
-    {file = "django-configurations-2.2.tar.gz", hash = "sha256:9e3bcea1355ac50a4c9f854f751d214cb17e5f8adf18405a4488d0a1e8945915"},
-    {file = "django_configurations-2.2-py2.py3-none-any.whl", hash = "sha256:0b93cb7042739e2d69cfc6fb81676bbd3cbb63ea19b02e8b681f4cad3a8aaf1b"},
+    {file = "django-configurations-2.3.1.tar.gz", hash = "sha256:e2ca25530e184f0ee3b7f5ae69563461a93a8914493306ee0bf6d71e7d8ad1d0"},
+    {file = "django_configurations-2.3.1-py3-none-any.whl", hash = "sha256:65e2e9b68a699d9403663b17c367e5e31ffd3739d4ddf995e04217416876dba1"},
 ]
 django-s3-sqlite = [
     {file = "django-s3-sqlite-0.0.4.tar.gz", hash = "sha256:6c15d496ddce395b6f02a220131322fbc69103abeff0c5966c8dc2a105fbdef5"},

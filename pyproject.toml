@@ -15,7 +15,7 @@ zappa = "^0.54.1"
 django-s3-storage = "^0.13.4"
 python-dotenv = "^0.19.2"
 django-s3-sqlite = "^0.0.4"
-django-configurations = "^2.2"
+django-configurations = "^2.3"
 
 [tool.poetry.dev-dependencies]
 factory-boy = "^3.2.1"
