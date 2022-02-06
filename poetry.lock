@@ -204,7 +204,7 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 name = "django-configurations"
-version = "2.3.1"
+version = "2.3.2"
 description = "A helper for organizing Django settings."
 category = "main"
 optional = false
@@ -1072,8 +1072,8 @@ django = [
     {file = "Django-4.0.tar.gz", hash = "sha256:d5a8a14da819a8b9237ee4d8c78dfe056ff6e8a7511987be627192225113ee75"},
 ]
 django-configurations = [
-    {file = "django-configurations-2.3.1.tar.gz", hash = "sha256:e2ca25530e184f0ee3b7f5ae69563461a93a8914493306ee0bf6d71e7d8ad1d0"},
-    {file = "django_configurations-2.3.1-py3-none-any.whl", hash = "sha256:65e2e9b68a699d9403663b17c367e5e31ffd3739d4ddf995e04217416876dba1"},
+    {file = "django-configurations-2.3.2.tar.gz", hash = "sha256:bd1a77a60735839b7d105912cc3977735fa005ea06544c632fbd322d1e021677"},
+    {file = "django_configurations-2.3.2-py3-none-any.whl", hash = "sha256:c0363b0111df6536442186d0f23d12138390eaa9f4f97ce46950ee78856a46c9"},
 ]
 django-s3-sqlite = [
     {file = "django-s3-sqlite-0.0.4.tar.gz", hash = "sha256:6c15d496ddce395b6f02a220131322fbc69103abeff0c5966c8dc2a105fbdef5"},
