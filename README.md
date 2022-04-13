@@ -1,6 +1,12 @@
 # Carrier Owl
 #### Assistant for sending out personalized invitations
 
+## Deprecated
+
+This project is no longer being maintained by the owner.
+
+---
+
 ![CI](https://github.com/RevolutionTech/carrier-owl/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/RevolutionTech/carrier-owl/branch/main/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/carrier-owl)
 
