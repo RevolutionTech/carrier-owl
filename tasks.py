@@ -1,5 +1,4 @@
-from invoke import Collection, task
+from invoke import Collection
 from opstrich.invoke import check
-
 
 namespace = Collection(check)
