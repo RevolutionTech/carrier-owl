@@ -7,7 +7,7 @@ license = "ISC"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "~4.0"
+Django = "~4.1"
 social-auth-app-django = "^5.0.0"
 google-api-python-client = "^2.43.0"
 oauth2client = "^4.1"
